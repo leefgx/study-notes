@@ -124,3 +124,110 @@ CSS 属性定义背景效果:
 
 
 
+# CSS 链接
+
+------
+
+不同的链接可以有不同的样式。
+
+------
+
+## 链接样式
+
+链接的样式，可以用任何CSS属性（如颜色，字体，背景等）。
+
+特别的链接，可以有不同的样式，这取决于他们是什么状态。
+
+这四个链接状态是：
+
+- a:link - 正常，未访问过的链接
+- a:visited - 用户已访问过的链接
+- a:hover - 当用户鼠标放在链接上时
+- a:active - 链接被点击的那一刻
+
+
+
+当设置为若干链路状态的样式，也有一些顺序规则：
+
+- a:hover 必须跟在 a:link 和 a:visited后面
+- a:active 必须跟在 a:hover后面
+
+# CSS 边框
+
+border-style属性可以有1-4个值：
+
+- border-style:dotted solid double dashed;
+  - 上边框是 dotted
+  - 右边框是 solid
+  - 底边框是 double
+  - 左边框是 dashed
+- border-style:dotted solid double;
+  - 上边框是 dotted
+  - 左、右边框是 solid
+  - 底边框是 double
+- border-style:dotted solid;
+  - 上、底边框是 dotted
+  - 右、左边框是 solid
+- border-style:dotted;
+  - 四面边框是 dotted
+
+上面的例子用了border-style。然而，它也可以和border-width 、 border-color一起使用。
+
+
+
+**块级元素(block)特性：**
+
+- 总是独占一行，表现为另起一行开始，而且其后的元素也必须另起一行显示;
+- 宽度(width)、高度(height)、内边距(padding)和外边距(margin)都可控制;
+
+**内联元素(inline)特性：**
+
+- 和相邻的内联元素在同一行;
+- 宽度(width)、高度(height)、内边距的top/bottom(padding-top/padding-bottom)和外边距的top/bottom(margin-top/margin-bottom)都不可改变，就是里面文字或图片的大小;
+
+**块级元素主要有：**
+
+-  address , blockquote , center , dir , div , dl , fieldset , form , h1 , h2 , h3 , h4 , h5 , h6 , hr , isindex , menu , noframes , noscript , ol , p , pre , table , ul , li
+
+**内联元素主要有：**
+
+- a , abbr , acronym , b , bdo , big , br , cite , code , dfn , em , font , i , img , input , kbd , label , q , s , samp , select , small , span , strike , strong , sub , sup ,textarea , tt , u , var
+
+**可变元素(根据上下文关系确定该元素是块元素还是内联元素)：**
+
+- applet ,button ,del ,iframe , ins ,map ,object , script
+
+**CSS中块级、内联元素的应用：**
+
+利用CSS我们可以摆脱上面表格里HTML标签归类的限制，自由地在不同标签/元素上应用我们需要的属性。
+
+主要用的CSS样式有以下三个：
+
+- display:block -- 显示为块级元素
+- display:inline -- 显示为内联元素
+- display:inline-block -- 显示为内联块元素，表现为同行显示并可修改宽高内外边距等属性
+
+我们常将所有<li>元素加上display:inline-block样式，原本垂直的列表就可以水平显示了。
+
+对于 CSS 里的 **visibility** 属性，通常其值被设置成 **visible** 或 **hidden**。
+
+**visibility: hidden** 相当于 **display:none**，能把元素隐藏起来，但两者的区别在于：
+
+-  1、**display:none** 元素不再占用空间。
+-  2、**visibility: hidden** 使元素在网页上不可见，但仍占用空间。
+
+然而，visibility 还可能取值为 collapse 。
+
+当设置元素 **visibility: collapse** 后，一般的元素的表现与 **visibility: hidden** 一样，也即其会占用空间。但如果该元素是与 table 相关的元素，例如 table row、table column、table column group、table column group 等，其表现却跟 **display: none** 一样，也即其占用的空间会释放。
+
+在不同浏览器下，对 **visibility: collapse** 的处理方式不同：
+
+-  1、**visibility: collapse** 的上述特性仅在 Firefox 下起作用。
+-  2、在 IE 即使设置了 **visibility: collapse**，还是会显示元素。
+-  3、在 Chrome 下，即使会将元素隐藏，但无论是否是与 table 相关的元素，**visibility: collapse** 与 **visibility: hidden** 没有什么区别，即仍会占用空间。
+
+
+
+**提示:** 当使用 **position** 来对齐元素时, 通常 **<body>** 元素会设置 **margin** 和 **padding** 。 这样可以避免在不同的浏览器中出现可见的差异。
+
+当使用 position 属性时，IE8 以及更早的版本存在一个问题。如果容器元素（在我们的案例中是 <div class="container">）设置了指定的宽度，并且省略了 !DOCTYPE 声明，那么 IE8 以及更早的版本会在右侧增加 17px 的外边距。这似乎是为滚动条预留的空间。当使用 position 属性时，请始终设置 !DOCTYPE 声明
