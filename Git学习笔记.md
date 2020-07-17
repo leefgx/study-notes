@@ -365,3 +365,5 @@ git remote rm origin
 #### Git Gitee
 
 #### Git 服务器搭建
+
+![image-20200629122620912](C:\Users\FANG\AppData\Roaming\Typora\typora-user-images\image-20200629122620912.png)
